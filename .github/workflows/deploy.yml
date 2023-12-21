@@ -16,11 +16,11 @@ jobs:
           npm run build
           npm run update
       - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: Dylan700/sftp-upload-action@latest
         with:
           server: ${{ secrets.FTP_DEPLOY_HOST }}
           username: ${{ secrets.FTP_DEPLOY_USERNAME }}
           password: ${{ secrets.FTP_DEPLOY_PASSWORD }}
           port: ${{ secrets.FTP_DEPLOY_PORT }}
-          local-dir: './_site/'
-          server-dir: '/home/zerodivide85/sites/blog/'
+          uploads: |
+            ./_site => ./home/zerodivide85/sites/blog/
