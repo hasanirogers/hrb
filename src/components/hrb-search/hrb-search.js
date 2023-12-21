@@ -138,7 +138,7 @@ class HRBSearch extends LitElement {
     if (event.type === 'submit') event.preventDefault();
 
     this.searchTerm = this.shadowRoot.getElementById('searchposts').value;
-    const client = algoliasearch('R2CFUR5SSI', '185d2e4b953e5f6887a9226e35a48937');
+    const client = algoliasearch('R2CFUR5SSI', process.env.ALGOLIA_ADMIN_KEY);
     const index = client.initIndex('dev_HASANIROGERSBLOG');
     const attributes = ['excerpt', 'author', 'title', 'categories', 'date', 'url'];
 

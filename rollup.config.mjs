@@ -6,7 +6,7 @@ import terser from '@rollup/plugin-terser';
 import minifyHTML from 'rollup-plugin-minify-html-literals-v3';
 import copy from 'rollup-plugin-copy';
 import scss from 'rollup-plugin-scss';
-// import commonjs from '@rollup/plugin-commonjs';
+import dotenv from 'rollup-plugin-dotenv';
 
 const copyConfig = {
   targets: [
@@ -34,7 +34,7 @@ const config = {
     minifyHTML(),
     copy(copyConfig),
     scss(scssConfig),
-    // commonjs(),
+    dotenv(),
   ],
   preserveEntrySignatures: false,
 };
