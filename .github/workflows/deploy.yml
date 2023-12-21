@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.FTP_DEPLOY_PASSWORD }}
           port: ${{ secrets.FTP_DEPLOY_PORT }}
           uploads: |
-            ./_site => ./home/zerodivide85/sites/blog/
+            ./_site => ./sites/blog/
