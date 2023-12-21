@@ -1,0 +1,20 @@
+{% include 'partials/document.head.njk' %}
+  <kemet-drawer class="home" effect="push" side="left" overlay>
+    {% include 'partials/sidebar.njk' %}
+    <section slot="content">
+      <hrb-header location="home">
+        <div slot="heading">
+          <h1>Hasani Rogers Blog</h1>
+          <p>Join me in a place where I can talk about my experiences as a developer.</p>
+        </div>
+        <hrb-search slot="search"></hrb-search>
+      </hrb-header>
+      <main>
+        {{ content | safe }}
+      </main>
+      <br />
+      {% include 'partials/categories.njk' %}
+      <hrb-footer></hrb-footer>
+    </section>
+  </kemet-drawer>
+{% include 'partials/document.footer.njk' %}

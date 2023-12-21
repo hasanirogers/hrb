@@ -1,0 +1,16 @@
+<hrb-categories>
+{% for category, count in (collections.categories) %}
+    {% if category == "All posts" %}
+        <kemet-badge pill>
+          <a href="{{ url }}">{{ category }}</a>
+          <span>{{ count }}</span>
+        </kemet-badge>
+    {% else %}
+        {% set caturl = ["category", category] | join("/") %}
+        <kemet-badge pill>
+          <a href="{{ caturl | url }}">{{ category }}</a>
+          <span>{{ count }}</span>
+        </kemet-badge>
+    {% endif %}
+{% endfor %}
+</hrb-categories>

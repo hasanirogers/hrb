@@ -1,0 +1,15 @@
+<hrb-tags>
+{%- for tag in tags -%}
+  {% if tag !== "post" %}
+    {% set tagUrl = ["category", tag] | join("/") %}
+    <kemet-badge pill>
+      <a href="{{ tagUrl | url }}">{{ tag }}</a>
+      {% for category, count in (collections.categories) %}
+        {% if category === tag %}
+          <span>{{ count }}</span>
+        {% endif %}
+      {%- endfor -%}
+    </kemet-badge>
+  {% endif %}
+{%- endfor -%}
+</hrb-tags>

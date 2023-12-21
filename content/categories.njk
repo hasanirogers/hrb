@@ -1,0 +1,34 @@
+---
+layout: layouts/categories.njk
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - draft
+    - categories
+    - all
+permalink: /category/{{ tag }}/
+eleventyComputed:
+  pageTitle: Posts Tagged "{{ tag }}"
+title: Hasani Rogers' Blog
+---
+
+<hrb-cards>
+{% set taglist = collections[ tag ] %}
+{% for post in taglist | reverse %}
+  <kemet-card>
+    <h3>{{ post.data.title }}</h3>
+    <span class="date">
+      <kemet-icon icon="calendar"></kemet-icon>&nbsp;
+      {{ post.data.date | postDate }}
+    </span>
+    <p>{{ post.data.excerpt }}</p>
+    <div slot="footer">
+      <kemet-button link="{{ post.url }}">
+        Read More <kemet-icon slot="right" icon="chevron-right"></kemet-icon>
+      </kemet-button>
+    </div>
+  </kemet-card>
+{% endfor %}
+</hrb-cards>

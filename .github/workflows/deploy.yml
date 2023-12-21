@@ -1,0 +1,26 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Build Site & Update
+        working-directory: ./
+        run: |
+          npm install
+          npm run build
+          npm run update
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_DEPLOY_HOST }}
+          username: ${{ secrets.FTP_DEPLOY_USERNAME }}
+          password: ${{ secrets.FTP_DEPLOY_PASSWORD }}
+          port: ${{ secrets.FTP_DEPLOY_PORT }}
+          local-dir: './_site/'
+          server-dir: '/home/zerodivide85/sites/blog/'

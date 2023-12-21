@@ -1,0 +1,26 @@
+{% include 'partials/document.head.njk' %}
+  <kemet-drawer effect="push" side="left" overlay>
+    {% include 'partials/sidebar.njk' %}
+    <section slot="content">
+      <hrb-header>
+        <div slot="heading">
+          <h1>{{ title }}</h1>
+          <p>Posted on {{ date | postDate }}.</p>
+          <kemet-button link="/" variant="rounded">Return Home</kemet-button>
+        </div>
+      </hrb-header>
+      <main>
+        <article>{{ content | safe }}</article>
+        <aside>
+          <div>
+            <h3>Related Tags</h3>
+            {% include 'partials/tags.njk' %}
+            <h3>Links</h3>
+            {% include 'partials/aside.buttons.html' %}
+          </div>
+        </aside>
+      </main>
+      <hrb-footer></hrb-footer>
+    </section>
+  </kemet-drawer>
+{% include 'partials/document.footer.njk' %}

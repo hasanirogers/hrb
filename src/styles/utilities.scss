@@ -1,0 +1,11 @@
+.filepath {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1rem;
+  color: #d1e5ff;
+  margin: 0;
+  padding: 0.5rem;
+  letter-spacing: 0.5px;
+  transform: translateY(10px);
+  border-bottom: 1px solid black;
+  background: rgb(var(--kemet-color-gray-900));
+}

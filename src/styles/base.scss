@@ -1,0 +1,165 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #05161f;
+  --color-secondary: #e5c116;
+  --color-tertiary: #1d76c4;
+}
+
+html {
+  font: 16px 'Ubuntu', sans-serif;
+  line-height: 1.5;
+  transition: all 300ms ease;
+}
+
+body {
+  margin: 0;
+  color: var(--color-primary);
+
+  > footer {
+    display: block;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid rgb(var(--kemet-color-gray-300));
+
+    a {
+      text-decoration: none;
+      color: rgb(var(--kemet-color-gray-600));
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    > footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+  }
+}
+
+main {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 2rem;
+  display: grid;
+  gap: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid rgb(var(--kemet-color-gray-300));
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: minmax(75%, 1fr) auto;
+  }
+
+  > div {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    grid-column: span 2;
+  }
+
+  aside {
+    position: sticky;
+    top: 0;
+
+    padding: 1rem;
+    border-left: 2px solid rgb(var(--kemet-color-gray-300));
+
+    @media screen and (min-width: 768px) {
+      height: 100vh;
+    }
+  }
+
+  ul,
+  ol {
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+
+  article {
+    margin-top: 2rem;
+  }
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.75;
+}
+
+h2 {
+  font-size: clamp(2rem, 2vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.2;
+}
+
+a {
+  color: rgb(var(--kemet-color-primary));
+  text-decoration: none;
+}
+
+code {
+  font-size: 1rem;
+  color: rgb(var(--kemet-color-gray-200));
+  padding: 2px 8px;
+  letter-spacing: 1px;
+  background: rgb(var(--kemet-color-gray-900));
+  outline: 1px dashed rgb(var(--kemet-color-gray-900));
+  outline-offset: 3px;
+}
+
+pre code {
+  outline: none;
+}
+
+hr {
+  opacity: 0.4;
+}
+
+
+/* prism tomorrow overwrites */
+/* ------------------------- */
+
+:not(pre)>code[class*=language-], pre[class*=language-] {
+  background: rgb(var(--kemet-color-gray-900));
+}
+
+.token.attr-value,
+.token.char,
+.token.regex,
+.token.string,
+.token.variable {
+  color: #d1e5ff;
+}
+
+.token.boolean,
+.token.function,
+.token.number {
+  color: #f0ce49;
+}
+
+
+.token.atrule,
+.token.builtin,
+.token.important,
+.token.keyword,
+.token.selector {
+  color: #789efb;
+}
+
+.token.class-name,
+.token.constant,
+.token.property,
+.token.symbol {
+  color: #55f8d5;
+}

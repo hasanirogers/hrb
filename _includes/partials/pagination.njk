@@ -1,0 +1,13 @@
+<hrb-pagination>
+  <nav>
+    <div>{% if page.url != pagination.href.first %}<span>«</span><a href="{{ pagination.href.first }}">&nbsp;First</a>{% else %}<span>«</span>&nbsp;First{% endif %}</div>
+    <div>{% if pagination.href.previous %}<span>‹</span>&nbsp;<a href="{{ pagination.href.previous }}">Previous</a>{% else %}<span>‹</span>&nbsp;Previous{% endif %}</div>
+    <div class="numbers">
+    {%- for pageEntry in pagination.pages %}
+      <a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a>
+    {%- endfor %}
+    </div>
+    <div>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>&nbsp;<span>›</span>{% else %}Next&nbsp;<span>›</span>{% endif %}</div>
+    <div>{% if page.url != pagination.href.last %}<a href="{{ pagination.href.last }}">Last</a>&nbsp;<span>»</span>{% else %}Last&nbsp;<span>»</span>{% endif %}</div>
+  </nav>
+</hrb-pagination>

@@ -1,0 +1,16 @@
+---
+permalink: /algolia.json
+---
+[
+  {% for item in collections.post %}
+    {
+      "title": "{{ item.data.title }}",
+      "date": {{ page.date | rawDate }},
+      "author": "{{ item.data.author }}",
+      "url": "{{ item.url }}",
+      "excerpt": "{{ item.data.excerpt | jsonify }}",
+      "excerpt_html": "{{ item.data.excerpt | safe | jsonify }}",
+      "categories": [{% for category in item.data.tags %} "{{category}}"{% if not loop.last %},{% endif %} {% endfor %}]
+    }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]
