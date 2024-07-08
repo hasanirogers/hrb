@@ -7,11 +7,10 @@ class HRBHeader extends LitElement {
       stylesBase,
       css`
         :host {
-          --height: 60vh;
+          --height: 80vh;
 
           color: white;
           display: block;
-          overflow: hidden;
         }
 
         img {
