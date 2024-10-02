@@ -6,12 +6,19 @@ import terser from '@rollup/plugin-terser';
 import minifyHTML from 'rollup-plugin-minify-html-literals-v3';
 import copy from 'rollup-plugin-copy';
 import scss from 'rollup-plugin-scss';
-import dotenv from 'rollup-plugin-dotenv';
+import replace from '@rollup/plugin-replace';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const copyConfig = {
   targets: [
     { src: 'src/assets', dest: '_site' },
   ],
+};
+
+const replaceConfig = {
+  'process.env.ALGOLIA_ADMIN_KEY': JSON.stringify(process.env.ALGOLIA_ADMIN_KEY),
 };
 
 const scssConfig = {
@@ -34,7 +41,7 @@ const config = {
     minifyHTML(),
     copy(copyConfig),
     scss(scssConfig),
-    dotenv(),
+    replace(replaceConfig),
   ],
   preserveEntrySignatures: false,
 };
