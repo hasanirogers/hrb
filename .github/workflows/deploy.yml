@@ -17,6 +17,8 @@ jobs:
           npm run update
       - name: Deploy
         uses: Dylan700/sftp-upload-action@latest
+        env:
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
         with:
           server: ${{ secrets.FTP_DEPLOY_HOST }}
           username: ${{ secrets.FTP_DEPLOY_USERNAME }}
